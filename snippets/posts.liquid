@@ -1,0 +1,27 @@
+<section class="posts">
+  {% for post in posts %}
+    {% include 'post' %}
+  {% endfor %}
+</section>
+
+{% if posts.pagination %}
+  <footer class="pagination">
+    <div class="prev-link">
+      {% if posts.pagination.previous %}
+        <a href="{{ posts.pagination.previous.url }}">Previous</a>
+      {% else %}
+        <span>Previous</span>
+      {% endif %}
+    </div>
+
+    <div class="page-num">Page {{ posts.current_page }} of {{ posts.total_pages }}</div>
+
+    <div class="next-link">
+      {% if posts.pagination.next %}
+        <a class="next-link" href="{{ posts.pagination.next.url }}">Next</a>
+      {% else %}
+        <span>Next</span>
+      {% endif %}
+    </div>
+  </footer>
+{% endif %}

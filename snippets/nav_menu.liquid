@@ -1,0 +1,12 @@
+{% if site.navigation_menu.items != empty %}
+  <nav class="nav-menu">
+    <ul>
+      <li class="posthaven-icon">
+        <a href="{{ posthaven.url }}" alt="Posthaven"><span></span></a>
+      </li>
+    {% for menu_item in site.navigation_menu.items %}
+      <li class="{{ menu_item.url | text_if_current}}"><a href="{{ menu_item.url }}">{{ menu_item.title }}</a></li>
+    {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

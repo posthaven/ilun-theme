@@ -1,0 +1,635 @@
+@charset "UTF-8";
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+
+	Eric Meyer					:: http://meyerweb.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+
+-------------------------------------------------------------------------------*/
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent; }
+
+article, aside, figure, footer, header, nav, section, details, summary {
+  display: block; }
+
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+/* Responsive images and other embedded objects */
+/* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
+img,
+object,
+embed {
+  max-width: 100%; }
+
+/*
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+	In fact, it *will* cause problems with Google Maps' controls at small size.
+	If this is the case for you, try uncommenting the following:
+
+#map img {
+		max-width: none;
+}
+*/
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll; }
+
+/* we use a lot of ULs that aren't bulleted.
+	you'll have to restore the bullets within content,
+	which is fine because they're probably customized anyway */
+ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+th {
+  font-weight: bold;
+  vertical-align: bottom; }
+
+td {
+  font-weight: normal;
+  vertical-align: top; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */ }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom; }
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
+
+select, input, textarea {
+  font: 99% sans-serif; }
+
+table {
+  font-size: inherit;
+  font: 100%; }
+
+small {
+  font-size: 85%; }
+
+strong {
+  font-weight: bold; }
+
+td, td img {
+  vertical-align: top; }
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif; }
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0; }
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {
+  width: auto;
+  overflow: visible; }
+
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+/* prevent BG image flicker upon hover
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+/* let's clear some floats */
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both; }
+
+.heading-font, h1, h2, h3, h4, h5, h6, form input[type=submit], nav.nav-menu, body > footer .built-with .posthaven-user-menu a, footer.post-footer .responses .response .upvote strong, footer.pagination, main > section.archive .archive-months li a, main > section.archive .archive-months .archive-all-dates {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.2; }
+
+.body-font, body, form textarea, form input[type=text], form input[type=password] {
+  font-family: 'Merriweather', Helvetica, Arial, sans-serif;
+  line-height: 1.45; }
+
+.light-links a, body > footer a, footer.pagination a, .light-links a:visited, body > footer a:visited, footer.pagination a:visited {
+  color: #ffffaa; }
+.light-links a:hover, body > footer a:hover, footer.pagination a:hover {
+  color: #ffffef; }
+
+.dot-uls ul, body > footer ul, footer.post-footer .tags ul, .dot-uls li, body > footer li, footer.post-footer .tags li {
+  display: inline-block; }
+.dot-uls ul li:after, body > footer ul li:after, footer.post-footer .tags ul li:after {
+  content: " \00b7";
+  color: #555; }
+.dot-uls ul li:last-of-type:after, body > footer ul li:last-of-type:after, footer.post-footer .tags ul li:last-of-type:after {
+  content: normal; }
+
+html {
+  font-size: 20px; }
+  @media screen and (max-width: 600px) {
+    html {
+      font-size: 16px; } }
+
+body {
+  background-color: white;
+  color: #eee;
+  background-color: #222; }
+
+p {
+  margin-bottom: 1.3em; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em; }
+
+h1 {
+  margin-top: 0;
+  font-size: 3.157rem; }
+
+h2 {
+  font-size: 2.369rem; }
+
+h3 {
+  font-size: 1.777rem; }
+
+h4 {
+  font-size: 1.333rem; }
+
+small {
+  font-size: 0.75rem; }
+
+a {
+  text-decoration: none;
+  transition: color .25s; }
+  a, a:visited {
+    color: #ffff66; }
+  a:hover {
+    color: #ffffaa; }
+
+form textarea, form input[type=text], form input[type=password], form input[type=submit] {
+  font-size: 1em;
+  background-color: inherit;
+  border: 2px solid #aaa; }
+form textarea, form input[type=text], form input[type=password] {
+  padding: 0.4em 0.4em 0.3em;
+  border-radius: 1px;
+  color: #eee; }
+form input[type=checkbox] {
+  vertical-align: middle;
+  position: relative;
+  bottom: 2px; }
+form input[type=submit] {
+  padding: .4em 1em .4rem;
+  transition: background-color .25s, color .25s;
+  border-radius: 2px;
+  color: #aaa; }
+form input[type=submit]:hover {
+  background-color: #0a0a0a;
+  color: #eee; }
+
+body > header, body > main, .footer-content, nav.nav-menu ul {
+  max-width: 100%;
+  margin: auto; }
+  @media screen and (max-width: 800px) {
+    body > header, body > main, .footer-content, nav.nav-menu ul {
+      padding: 0 1rem; } }
+
+body > main, body > header {
+  width: 800px; }
+
+.footer-content, nav.nav-menu ul {
+  width: 1100px; }
+
+body > header {
+  margin-top: 2rem; }
+
+body > main {
+  min-height: 600px;
+  padding-bottom: 0.5rem; }
+
+body > footer {
+  margin-top: 2rem;
+  background-color: #0a0a0a; }
+  body > footer .footer-content {
+    width: 1000px; }
+
+.silcrow {
+  margin: 4rem 0 5rem;
+  font-size: 2.369rem;
+  color: #777;
+  text-align: center; }
+
+.posthaven-icon span {
+  width: 22px;
+  height: 22px;
+  background-image: url("images/posthaven-icon-1x.png");
+  background-size: 100% 100%; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    .posthaven-icon span {
+      background-image: url("images/posthaven-icon-4x.png"); } }
+
+nav.nav-menu {
+  background-color: #0a0a0a;
+  width: 100%;
+  margin-bottom: -0.5rem;
+  border-bottom: 1px solid #555;
+  overflow: auto; }
+  nav.nav-menu ul li.posthaven-icon {
+    border-width: 0; }
+    nav.nav-menu ul li.posthaven-icon span {
+      display: block;
+      vertical-align: middle;
+      position: relative;
+      top: -1px; }
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+        nav.nav-menu ul li.posthaven-icon span {
+          background-image: url("images/posthaven-icon-4x.png"); } }
+  nav.nav-menu ul li {
+    border: solid #3a3a3a;
+    padding: .5rem 0;
+    border-width: 1px 0 0; }
+    nav.nav-menu ul li a {
+      color: #cdcdcd; }
+      nav.nav-menu ul li a:hover {
+        color: #eee; }
+  @media screen and (min-width: 415px) {
+    nav.nav-menu {
+      font-size: 0.75rem; }
+      nav.nav-menu ul li, nav.nav-menu ul .posthaven-icon span {
+        float: left; }
+      nav.nav-menu ul li.posthaven-icon {
+        padding: 0; }
+      nav.nav-menu ul li {
+        height: 1rem;
+        line-height: 1rem;
+        padding: 0 .5rem;
+        margin: .5rem 0;
+        border-width: 0 0 0 1px; } }
+
+body > header {
+  margin-bottom: 2rem; }
+  body > header .site-name a {
+    color: inherit; }
+  body > header .site-description {
+    margin-top: -1.5rem;
+    color: #999; }
+
+body > footer {
+  padding: 2rem 0;
+  border-top: 1px solid #555; }
+  body > footer hr {
+    clear: both;
+    margin: 1.75rem 1.5rem;
+    border-color: #3a3a3a; }
+  body > footer .bio, body > footer .flexer {
+    color: #aaa;
+    clear: both;
+    font-size: .9rem; }
+  body > footer h3, body > footer h5, body > footer .built-with {
+    color: #cdcdcd; }
+  body > footer .bio {
+    font-size: 0.9rem;
+    overflow: auto; }
+    body > footer .bio .profile-pic {
+      float: left;
+      margin: 0 1rem 0.25rem 0; }
+    body > footer .bio .contributors {
+      clear: both; }
+      body > footer .bio .contributors strong {
+        display: inline-block;
+        color: #aaa;
+        margin-right: 0.25rem; }
+  body > footer .flexer h5 {
+    font-size: 1rem; }
+  body > footer .flexer > div {
+    margin-bottom: 1rem;
+    font-size: .75rem; }
+    body > footer .flexer > div input {
+      margin-bottom: 0.5rem; }
+    body > footer .flexer > div input[type=text] {
+      width: 100%; }
+  @media screen and (min-width: 415px) {
+    body > footer .flexer {
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row wrap; }
+      body > footer .flexer > div {
+        width: 45%; }
+        body > footer .flexer > div:nth-last-of-type(2), body > footer .flexer > div:last-of-type {
+          margin-bottom: 0; } }
+  body > footer .built-with {
+    margin-bottom: 1rem;
+    text-align: center; }
+    body > footer .built-with .posthaven-user-menu a {
+      font-weight: normal;
+      display: inline-block;
+      font-size: .6em;
+      margin: 0.5rem 0.2rem;
+      padding: .25rem .5rem 0.3rem;
+      border: 1px solid #3a3a3a;
+      border-radius: 3px;
+      transition: border-color .25s; }
+      body > footer .built-with .posthaven-user-menu a:hover {
+        border-color: #ffffef; }
+
+article.post, article.page {
+  max-width: 100%; }
+  article.post header, article.page header {
+    position: relative; }
+    article.post header .date-author, article.page header .date-author {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #777; }
+      article.post header .date-author a, article.page header .date-author a {
+        color: #777; }
+        article.post header .date-author a:hover, article.page header .date-author a:hover {
+          color: #eee; }
+    article.post header .private-indicator, article.page header .private-indicator {
+      position: absolute;
+      top: 0;
+      right: 0; }
+    article.post header h1.title, article.page header h1.title {
+      font-size: 1.777rem; }
+  article.post div.body h1, article.post div.body h2, article.post div.body h3, article.post div.body p, article.post div.body ul, article.post div.body ol, article.post div.body blockquote, article.page div.body h1, article.page div.body h2, article.page div.body h3, article.page div.body p, article.page div.body ul, article.page div.body ol, article.page div.body blockquote {
+    margin: 0 0 1em 0; }
+    article.post div.body h1:last-child, article.post div.body h2:last-child, article.post div.body h3:last-child, article.post div.body p:last-child, article.post div.body ul:last-child, article.post div.body ol:last-child, article.post div.body blockquote:last-child, article.page div.body h1:last-child, article.page div.body h2:last-child, article.page div.body h3:last-child, article.page div.body p:last-child, article.page div.body ul:last-child, article.page div.body ol:last-child, article.page div.body blockquote:last-child {
+      margin-bottom: 0; }
+  article.post div.body h1, article.post div.body h2, article.post div.body h3, article.page div.body h1, article.page div.body h2, article.page div.body h3 {
+    font-weight: bold; }
+  article.post div.body h1, article.page div.body h1 {
+    font-size: 1.777rem; }
+  article.post div.body h2, article.page div.body h2 {
+    font-size: 1.333rem; }
+  article.post div.body h3, article.page div.body h3 {
+    font-size: 1.25em; }
+  article.post div.body b, article.post div.body strong, article.page div.body b, article.page div.body strong {
+    font-weight: bold; }
+  article.post div.body ul, article.post div.body ol, article.page div.body ul, article.page div.body ol {
+    padding-left: 2em; }
+  article.post div.body blockquote, article.page div.body blockquote {
+    margin-left: 1em;
+    border-left: 0.125em solid #777;
+    padding-left: 0.75em; }
+  article.post div.body table, article.page div.body table {
+    width: 100%; }
+    article.post div.body table, article.post div.body table th, article.post div.body table td, article.page div.body table, article.page div.body table th, article.page div.body table td {
+      border-top: 1px solid #777; }
+    article.post div.body table th, article.post div.body table td, article.page div.body table th, article.page div.body table td {
+      padding: 0.33em; }
+  article.post .response-count, article.page .response-count {
+    margin-top: 1.5rem;
+    font-size: .8rem; }
+    article.post .response-count a, article.post .response-count a:visited, article.page .response-count a, article.page .response-count a:visited {
+      color: #777; }
+      article.post .response-count a:hover, article.post .response-count a:visited:hover, article.page .response-count a:hover, article.page .response-count a:visited:hover {
+        color: #aaa; }
+
+footer.post-footer {
+  margin-top: 4rem; }
+  footer.post-footer hr {
+    position: relative;
+    margin: 2rem 2rem;
+    border-color: #2e2e2e; }
+    footer.post-footer hr:first-of-type {
+      border-top-style: double;
+      border-top-width: 4px; }
+      footer.post-footer hr:first-of-type:after {
+        position: absolute;
+        left: 50%;
+        margin-left: -10px;
+        top: -13px;
+        font-size: 16px;
+        content: '§';
+        color: #2e2e2e;
+        background-color: #222; }
+  footer.post-footer h4 {
+    color: #aaa; }
+  footer.post-footer .tags {
+    font-size: .9rem; }
+  footer.post-footer .responses .response {
+    margin: 2rem 0;
+    font-size: 0.9rem; }
+    footer.post-footer .responses .response .byline {
+      margin-top: 0.25rem;
+      font-size: 0.7rem;
+      color: #555; }
+    footer.post-footer .responses .response .time-ago {
+      font-style: italic; }
+    footer.post-footer .responses .response .comment-author {
+      color: #777; }
+    footer.post-footer .responses .response ul, footer.post-footer .responses .response ol {
+      padding-left: 1em; }
+    footer.post-footer .responses .response ul {
+      list-style: disc; }
+    footer.post-footer .responses .response blockquote {
+      padding-left: 0.9em;
+      border-left: 0.1em #777; }
+    footer.post-footer .responses .response .upvote strong {
+      color: #aaa;
+      margin-right: .25rem; }
+  footer.post-footer .responses table {
+    width: 100%; }
+    footer.post-footer .responses table, footer.post-footer .responses table th, footer.post-footer .responses table td {
+      border-top: 1px solid #777; }
+    footer.post-footer .responses table th, footer.post-footer .responses table td {
+      padding: 0.33em; }
+
+section.posts article.post {
+  margin-bottom: 6em; }
+
+footer.pagination {
+  margin: 2rem 0;
+  display: flex; }
+  footer.pagination .prev-link, footer.pagination .next-link {
+    flex: 1; }
+    footer.pagination .prev-link span, footer.pagination .next-link span {
+      color: #555; }
+  footer.pagination .prev-link {
+    text-align: right; }
+  footer.pagination .next-link {
+    text-align: left; }
+  footer.pagination .page-num {
+    flex: 20%;
+    color: #777;
+    text-align: center; }
+
+main > section.archive {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap; }
+  main > section.archive h2 {
+    width: 100%; }
+  main > section.archive .archive-months {
+    width: 200px;
+    margin-bottom: 1em; }
+    main > section.archive .archive-months h4 {
+      font-size: 0.9rem;
+      color: #aaa; }
+    main > section.archive .archive-months ul {
+      list-style: none;
+      padding-left: 0; }
+    main > section.archive .archive-months li a {
+      font-size: 0.9rem; }
+    main > section.archive .archive-months .month-count {
+      font-size: 0.75rem;
+      color: #555; }
+    main > section.archive .archive-months .archive-all-dates {
+      margin-top: 0.5em;
+      font-size: 0.8em; }
+    main > section.archive .archive-months .posthaven-archive-selected a {
+      color: inherit; }
+  main > section.archive .archive-results {
+    flex: 1; }
+    main > section.archive .archive-results form, main > section.archive .archive-results input {
+      margin-bottom: 0.75em;
+      width: 100%; }
+    main > section.archive .archive-results li {
+      margin-bottom: 0.5em; }
+      main > section.archive .archive-results li .search-highlight em, main > section.archive .archive-results li a em {
+        font-style: normal;
+        color: #eee; }
+      main > section.archive .archive-results li .search-highlight {
+        color: #aaa; }
+      main > section.archive .archive-results li .archive-date {
+        color: #777;
+        font-style: italic;
+        font-size: 0.75rem; }
+  main > section.archive .archive-pagination {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    text-align: center; }
+    main > section.archive .archive-pagination a {
+      display: inline-block;
+      visibility: visible;
+      margin-right: 1rem; }
+      main > section.archive .archive-pagination a.posthaven-archive-disabled {
+        color: #555;
+        cursor: inherit; }
+
+.posthaven-form-error {
+  color: #ff6666; }
+
+.posthaven-subscribe-form strong {
+  font-weight: normal; }
+.posthaven-subscribe-form .posthaven-subscribe-prompt span {
+  display: none; }
+.posthaven-subscribe-form input[type=text] {
+  margin-top: .25rem; }
+
+.posthaven-comment-form .posthaven-field {
+  margin: 0.75em 0; }
+  .posthaven-comment-form .posthaven-field label {
+    display: block;
+    margin-bottom: 0.25em;
+    color: #777; }
+  .posthaven-comment-form .posthaven-field textarea, .posthaven-comment-form .posthaven-field input[type=text] {
+    max-width: 95%;
+    width: 34em; }
+  .posthaven-comment-form .posthaven-field input[type=checkbox] {
+    vertical-align: baseline;
+    margin-right: 0.25em; }
+  .posthaven-comment-form .posthaven-field.posthaven-comment-notify-field label {
+    display: inline; }
+.posthaven-comment-form .posthaven-comment-verification {
+  width: 34em;
+  margin-bottom: 0.75em; }
+
+.posthaven-share-links .posthaven-share-item {
+  display: inline-block;
+  margin-right: .5rem; }
+
+.posthaven-private-form .posthaven-field {
+  display: inline-block;
+  margin-right: 0.25em; }

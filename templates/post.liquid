@@ -1,0 +1,51 @@
+{% include 'post' %}
+
+<footer class="post-footer">
+  {% if  site.share_buttons_enabled? %}
+    <hr>
+    <div class="share-buttons">
+      <h4>Share</h4>
+      {{ post | share_buttons }}
+    </div>
+  {% endif %}
+
+  {% unless post.tags == empty %}
+    <hr>
+    <div class="tags">
+      <h4>Tags</h4>
+      <ul>
+        {% for t in post.tags %}
+          <li class="{{ t.url | text_if_current}}">
+            <a href="{{ t.url }}">{{ t.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endunless %}
+
+  {% if post.response_count > 0 %}
+    <hr>
+    <div class="responses">
+      <h4>{{ post.response_count | pluralize: 'Response' }}</h4>
+      {% for response in post.responses %}
+        {% include 'response' %}
+      {% endfor %}
+      {% if post.anon_upvote_count > 0 %}
+        <div class="response">
+          <div class="upvote">
+            {{ post.anon_upvote_count | pluralize: 'visitor' }}
+            upvoted this post.
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if site.comments_enabled? %}
+    <hr>
+    <div class="new-comment">
+      <h4>New Comment</h4>
+      {% form 'comment' %}
+    </div>
+  {% endif %}
+</footer>

@@ -1,0 +1,94 @@
+<footer>
+  <div class="footer-content">
+    <div class='bio'>
+      <h3>{{ site.profile.name }}</h3>
+
+      {% if site.profile.photo %}
+        <div class="profile-pic">
+          <img src="{{ site.profile.photo.medium.url }}"
+              width="{{ site.profile.photo.medium.width }}"
+              height="{{ site.profile.photo.medium.height }}">
+        </div>
+      {% endif %}
+
+      {{ site.profile.bio }}
+
+      {% unless site.contributors == empty %}
+        <div class="contributors">
+          <strong>Contributors:</strong>
+          <ul>
+            {% for contributor in site.contributors %}
+              <li><a href="{{ contributor.url }}">{{ contributor.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endunless %}
+    </div>
+
+    <hr>
+
+    <div class="flexer">
+      <div class="archive">
+        <h5>Archive</h5>
+        {% form 'archive' %}
+        <a href="{{ site.archive_url }}">Browse the archive &raquo;</a>
+      </div>
+
+
+
+      {% if site.subscription_enabled? %}
+        <div class="subscribe">
+          <h5>Subscribe</h5>
+          {% form 'subscribe' include_prompt:true %}
+
+          <a href="{{ site.feed_url }}">Subscribe to the feed &raquo;</a>
+        </div>
+      {% endif %}
+
+      {% unless site.blogroll == empty %}
+        {% for menu in site.blogroll %}
+          {% unless menu.items == empty %}
+            <div class="blogroll">
+                <h5>{{ menu.title }}</h5>
+                <ul>
+                  {% for menu_item in menu.items %}
+                    <li class="menu-item {{ menu_item.url | text_if_current}}">
+                      <a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </div>
+          {% endunless %}
+        {% endfor %}
+      {% endunless %}
+
+      {% unless site.tags == emtpy %}
+        <div>
+          <h5>Tags</h5>
+          <ul>
+            {% for t in site.tags limit:10 %}
+              <li class="{{ t.url | text_if_current}}">
+                <a href="{{ t.url }}">{{ t.name }}</a>
+                <span class="tag-count">{{ t.post_count }}</span>
+              </li>
+            {% endfor %}
+
+            {% if site.tags.size > 10 %}
+              <li>
+                <a href="{{ site.tags_url }}">See all {{ site.tags.size }} tags&nbsp;&raquo;</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endunless %}
+    </div>
+
+    <hr>
+
+    <div class="built-with">
+      Built with <a href="https://posthaven.com/">Posthaven, blogging forever.</a>
+      {{ posthaven.user_menu }}
+    </div>
+  </div>
+</footer>
+

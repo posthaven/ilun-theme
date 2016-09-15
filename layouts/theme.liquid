@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class='no-js'>
+  <head>
+    <title>{{ request.page_title }}</title>
+
+    <meta content='width=device-width,initial-scale=1' name='viewport'>
+
+    {{ meta_tags }}
+
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i|Montserrat:400,700" 
+          rel="stylesheet">
+
+    <link href="{{ 'images/favicon.ico' | asset_url }}" rel='shortcut icon' type='image/x-icon'>
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    {{ 'blog.css' | asset_url | stylesheet_tag }}
+
+    {{ posthaven.includes_for_head }}
+  </head>
+
+  <body class='site-{{ site.id }}'>
+    {% include 'nav_menu' %}
+
+    <header>
+      {% include 'alerts' %}
+
+      <h1 class="site-name">
+        <a href="{{ site.url }}">{{ site.name | smarty_pants }}</a>
+      </h1>
+
+      {% unless site.description == empty %}
+        <h4 class="site-description">{{ site.description | smarty_pants }}</h4>
+      {% endunless %}
+
+    </header>
+
+
+    <main>
+      {{ content_for_layout }}
+    </main>
+
+    {% include 'footer' %}
+
+    {{ posthaven.includes_for_body }}
+  </body>
+</html>

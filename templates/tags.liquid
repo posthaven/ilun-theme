@@ -1,0 +1,12 @@
+<h2>All Tags</h2>
+
+<section class="all-tags">
+  <ul>
+    {% for t in site.tags %}
+      <li>
+        <a href="{{ t.url }}">{{ t.name }}</a>
+        <span class="measure tag-count">{{ t.post_count }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,37 @@
+<article class="post post-{{ post.id }}">
+  <header>
+    {% if post.private? %}
+      <div class="private-indicator" title="This post is private">&#128274;</div>
+    {% endif %}
+
+    <div class="date-author">
+      <a href="{{ post.url }}" class="date">{{ post.published_at | local_date: '%B %e, %Y' }}</a>
+
+      {% if post.show_byline? %}
+        <span class="author">
+          &mdash;
+          {% if post.author.url %}
+            <a href="{{ post.author.url }}">{{ post.author.name }}</a>
+          {% else %}
+            {{ post.author.name }}
+          {% endif %}
+        </span>
+      {% endif %}
+    </div>
+    <h1 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+  </header>
+
+  <div class="body">
+    {{ post.body }}
+  </div>
+
+  {% unless post.url.current_page? %}
+    {% if post.response_count > 0 %}
+      <div class="response-count">
+        <a href="{{ post.url }}#comments" alt="{{ post.title }}">
+          {{ post.response_count | pluralize: 'response' }}
+        </a>
+      </div>
+    {% endif %}
+  {% endunless %}
+</article>

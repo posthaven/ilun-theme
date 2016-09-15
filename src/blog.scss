@@ -1,0 +1,802 @@
+@import 'reset';
+
+// ----------------------------------------------------------
+// Vars
+// ----------------------------------------------------------
+
+$contentWid: 800px;
+
+// The names ended up kinda of arbitrary.
+$darkBgColor: #0a0a0a;
+
+$bgColor: #222;
+$bgSuperLight: #2e2e2e;
+$darkBgLightBorder: #3a3a3a;
+
+$lightText3: #555;
+$lightText2: #777;
+$lightText1: #aaa;
+
+$darkBgLightText: #cdcdcd;
+
+$textColor: #eee;
+
+$linkColor: #ffff66;
+$linkHoverColor: #ffffaa;
+
+$lightLinkColor: #ffffaa;
+$lightLinkHoverColor: #ffffef;
+
+$errorColor: #ff6666;
+
+// ----------------------------------------------------------
+// Includes
+// ----------------------------------------------------------
+
+.heading-font {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.body-font {
+  font-family: 'Merriweather', Helvetica, Arial, sans-serif;
+  line-height: 1.45;
+}
+
+.light-links {
+  a {
+    &, &:visited {
+     color: $lightLinkColor;
+    }
+
+    &:hover {
+      color: $lightLinkHoverColor;
+    }
+  }
+}
+
+.dot-uls {
+  ul, li {
+    display: inline-block;
+  }
+  ul li {
+    &:after {
+      content: " \00b7";
+      color: $lightText3;
+    }
+    &:last-of-type:after {
+      content: normal;
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// General
+// ----------------------------------------------------------
+
+html {
+  font-size: 20px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  @extend .body-font;
+
+  background-color: white;
+
+  color: #eee;
+  background-color: #222;
+}
+
+p {
+  margin-bottom: 1.3em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @extend .heading-font;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.157rem;
+}
+
+h2 {font-size: 2.369rem;}
+
+h3 {font-size: 1.777rem;}
+
+h4 {font-size: 1.333rem;}
+
+small { font-size: 0.75rem; }
+
+
+a {
+  text-decoration: none;
+  transition: color .25s;
+
+  &, &:visited {
+    color: $linkColor;
+  }
+
+  &:hover {
+    color: $linkHoverColor;
+  }
+}
+
+form {
+  textarea, input[type=text], input[type=password], input[type=submit] {
+    font-size: 1em;
+    background-color: inherit;
+    border: 2px solid $lightText1;
+  }
+
+  textarea, input[type=text], input[type=password] {
+    @extend .body-font;
+    padding: 0.4em 0.4em 0.3em;
+    border-radius: 1px;
+    color: $textColor;
+  }
+
+  input[type=checkbox] {
+    vertical-align: middle;
+    position: relative;
+    bottom: 2px;
+  }
+
+  input[type=submit] {
+    @extend .heading-font;
+    padding: .4em 1em .4rem;
+    transition: background-color .25s, color .25s;
+    border-radius: 2px;
+    color: $lightText1;
+  }
+  input[type=submit]:hover {
+    background-color: $darkBgColor;
+    color: $textColor;
+  }
+}
+
+// ----------------------------------------------------------
+// Layout
+// ----------------------------------------------------------
+
+body {
+}
+
+body > header, body > main, .footer-content, nav.nav-menu ul {
+  max-width: 100%;
+  margin: auto;
+
+  @media screen and (max-width: $contentWid) {
+    padding: 0 1rem;
+  }
+}
+
+body > main, body > header {
+  width: $contentWid;
+}
+
+.footer-content, nav.nav-menu ul {
+  width: $contentWid + 300;
+}
+
+body > header {
+  margin-top: 2rem;
+}
+
+body > main {
+  min-height: 600px;
+  padding-bottom: 0.5rem;
+}
+
+body > footer {
+  margin-top: 2rem;
+  background-color: $darkBgColor;
+
+  .footer-content {
+    width: $contentWid + 200;
+  }
+}
+
+.silcrow {
+  margin: 4rem 0 5rem;
+  font-size: 2.369rem;
+  color: $lightText2;
+  text-align: center;
+}
+
+// ----------------------------------------------------------
+// Nav Menu
+// ----------------------------------------------------------
+
+.posthaven-icon {
+  span {
+    width: 22px;
+    height: 22px;
+    background-image: url('images/posthaven-icon-1x.png');
+    background-size: 100% 100%;
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+      background-image: url('images/posthaven-icon-4x.png');
+    }
+  }
+}
+
+nav.nav-menu {
+  @extend .heading-font;
+  background-color: $darkBgColor;
+  width: 100%;
+  margin-bottom: -0.5rem;
+  border-bottom: 1px solid $lightText3;
+  overflow: auto;
+
+  ul {
+
+    li.posthaven-icon {
+      border-width: 0;
+
+      span {
+        display: block;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+          background-image: url('images/posthaven-icon-4x.png');
+        }
+      }
+    }
+
+    li {
+      border: solid $darkBgLightBorder;
+      padding: .5rem 0;
+      border-width: 1px 0 0;
+
+      a {
+        color: $darkBgLightText;
+
+        &:hover {
+          color: $textColor;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 415px) {
+    font-size: 0.75rem;
+
+    ul {
+      li, .posthaven-icon span {
+        float: left;
+      }
+
+      li.posthaven-icon {
+        padding: 0;
+      }
+
+      li {
+        height: 1rem;
+        line-height: 1rem;
+        padding: 0 .5rem;
+        margin: .5rem 0;
+        border-width: 0 0 0 1px;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// Header
+// ----------------------------------------------------------
+
+body > header {
+  margin-bottom: 2rem;
+
+  .site-name a {
+    color: inherit;
+  }
+
+  .site-description {
+    margin-top: -1.5rem;
+    color: #999;
+  }
+}
+
+// ----------------------------------------------------------
+// Footer
+// ----------------------------------------------------------
+
+body > footer {
+  @extend .light-links;
+  @extend .dot-uls;
+
+  padding: 2rem 0;
+  border-top: 1px solid $lightText3;
+
+  hr {
+    clear: both;
+    margin: 1.75rem 1.5rem;
+    border-color: $darkBgLightBorder;
+  }
+
+  .bio, .flexer  {
+    color: $lightText1;
+    clear: both;
+    font-size: .9rem;
+  }
+
+  h3, h5, .built-with {
+    color: $darkBgLightText;
+  }
+
+  .bio {
+    font-size: 0.9rem;
+    overflow: auto;
+
+    .profile-pic {
+      float: left;
+      margin: 0 1rem 0.25rem 0;
+    }
+
+    .contributors {
+      clear: both;
+
+      strong {
+        display: inline-block;
+        color: $lightText1;
+        margin-right: 0.25rem;
+      }
+    }
+  }
+
+  .flexer {
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    & > div {
+      margin-bottom: 1rem;
+      font-size: .75rem;
+
+      input {
+        margin-bottom: 0.5rem;
+      }
+      input[type=text] {
+        width: 100%;
+      }
+    }
+
+    @media screen and (min-width: 415px) {
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row wrap;
+
+      & > div {
+        width: 45%;
+
+        &:nth-last-of-type(2), &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+
+
+  .built-with {
+    margin-bottom: 1rem;
+    text-align: center;
+
+    .posthaven-user-menu a {
+      @extend .heading-font;
+      font-weight: normal;
+      display: inline-block;
+      font-size: .6em;
+      margin: 0.5rem 0.2rem;
+      padding: .25rem .5rem 0.3rem;
+      border: 1px solid $darkBgLightBorder;
+      border-radius: 3px;
+      transition: border-color .25s;
+
+      &:hover {
+        border-color: $lightLinkHoverColor;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// Posts
+// ----------------------------------------------------------
+
+article.post, article.page {
+  max-width: 100%;
+
+  header {
+    position: relative;
+
+    .date-author {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: $lightText2;
+
+      a {
+        color: $lightText2;
+
+        &:hover {
+          color: $textColor;
+        }
+      }
+    }
+
+    .private-indicator {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    h1.title {
+      font-size: 1.777rem;
+    }
+  }
+
+  div.body {
+    h1, h2, h3, p, ul, ol, blockquote {
+      margin: 0 0 1em 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    h1, h2, h3 {
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 1.777rem;
+    }
+    h2 {
+      font-size: 1.333rem;
+    }
+    h3 {
+      font-size: 1.25em;
+    }
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    ul, ol {
+      padding-left: 2em;
+    }
+
+    blockquote {
+      margin-left: 1em;
+      border-left: 0.125em solid $lightText2;
+      padding-left: 0.75em;
+    }
+
+    table {
+      width: 100%;
+
+      &, th, td {
+        border-top: 1px solid $lightText2;
+      }
+      th, td {
+        padding: 0.33em;
+      }
+    }
+  }
+
+  .response-count {
+    margin-top: 1.5rem;
+    font-size: .8rem;
+    a, a:visited {
+      color: $lightText2;
+
+      &:hover {
+        color: $lightText1;
+      }
+    }
+  }
+}
+
+footer.post-footer {
+  margin-top: 4rem;
+
+  hr {
+    position: relative;
+    margin: 2rem 2rem;
+    border-color: $bgSuperLight;
+
+    &:first-of-type {
+      border-top-style: double;
+      border-top-width: 4px;
+
+      &:after {
+        position: absolute;
+        left: 50%;
+        margin-left: -10px;
+        top: -13px;
+
+        font-size: 16px;
+
+        content: '§';
+        color: $bgSuperLight;
+        background-color: $bgColor;
+      }
+    }
+  }
+
+  h4 {
+    color: $lightText1;
+  }
+
+  .share-buttons {
+  }
+
+  .tags {
+    @extend .dot-uls;
+    font-size: .9rem;
+  }
+
+  .responses {
+    .response {
+      margin: 2rem 0;
+      font-size: 0.9rem;
+
+      .byline {
+        margin-top: 0.25rem;
+        font-size: 0.7rem;
+        color: $lightText3;
+      }
+      .time-ago {
+        font-style: italic;
+      }
+      .comment-author {
+        color: $lightText2;
+      }
+
+      ul, ol {
+        padding-left: 1em;
+      }
+      ul {
+        list-style: disc;
+      }
+      blockquote {
+        padding-left: 0.9em;
+        border-left: 0.1em $lightText2;
+      }
+
+      .upvote strong {
+        @extend .heading-font;
+        color: $lightText1;
+        margin-right: .25rem;
+      }
+    }
+
+    table {
+      width: 100%;
+
+      &, th, td {
+        border-top: 1px solid $lightText2;
+      }
+      th, td {
+        padding: 0.33em;
+      }
+    }
+  }
+
+  .new-comment {
+  }
+}
+
+section.posts article.post {
+  margin-bottom: 6em;
+}
+
+footer.pagination {
+  @extend .heading-font;
+  @extend .light-links;
+
+  margin: 2rem 0;
+
+  display: flex;
+
+  .prev-link, .next-link {
+    flex: 1;
+
+    span {
+      color: $lightText3;
+    }
+  }
+  .prev-link {
+    text-align: right;
+  }
+  .next-link {
+    text-align: left;
+  }
+  .page-num {
+    flex: 20%;
+    color: $lightText2;
+    text-align: center;
+  }
+}
+
+// ----------------------------------------------------------
+// Archive Page
+// ----------------------------------------------------------
+
+main > section.archive {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+
+  h2 {
+    width: 100%;
+  }
+
+  .archive-months {
+    width: 200px;
+    margin-bottom: 1em;
+
+    h4 {
+      font-size: 0.9rem;
+      color: $lightText1;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li a {
+      @extend .heading-font;
+      font-size: 0.9rem;
+    }
+
+    .month-count {
+      font-size: 0.75rem;
+      color: $lightText3;
+    }
+
+    .archive-all-dates {
+      @extend .heading-font;
+
+      margin-top: 0.5em;
+      font-size: 0.8em;
+    }
+
+    .posthaven-archive-selected a {
+      color: inherit;
+    }
+  }
+
+  .archive-results {
+    flex: 1;
+
+    form, input {
+      margin-bottom: 0.75em;
+      width: 100%;
+    }
+
+
+    li {
+      margin-bottom: 0.5em;
+
+      .search-highlight, a {
+        em {
+          font-style: normal;
+          color: $textColor;
+        }
+      }
+
+      .search-highlight {
+        color: $lightText1;
+
+      }
+      .archive-date {
+        color: $lightText2;
+        font-style: italic;
+        font-size: 0.75rem;
+      }
+    }
+
+  }
+
+  .archive-pagination {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      visibility: visible;
+      margin-right: 1rem;
+
+      &.posthaven-archive-disabled {
+        color: $lightText3;
+        cursor: inherit;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// Posthaven Internals
+// ----------------------------------------------------------
+
+.posthaven-form-error {
+  color: $errorColor;
+}
+
+.posthaven-subscribe-form {
+  strong {
+    font-weight: normal;
+  }
+  .posthaven-subscribe-prompt {
+    span {
+      display: none;
+    }
+  }
+
+  input[type=text] {
+    margin-top: .25rem;
+  }
+}
+
+.posthaven-comment-form {
+  .posthaven-comment-add-url {
+  }
+
+  .posthaven-field {
+    margin: 0.75em 0;
+
+    label {
+      display: block;
+      margin-bottom: 0.25em;
+      color: $lightText2;
+    }
+
+    textarea, input[type=text] {
+      max-width: 95%;
+      width: 34em;
+    }
+
+    input[type=checkbox] {
+      vertical-align: baseline;
+      margin-right: 0.25em;
+    }
+
+    &.posthaven-comment-notify-field {
+      label {
+        display: inline;
+      }
+    }
+  }
+
+  .posthaven-comment-verification {
+    width: 34em;
+    margin-bottom: 0.75em;
+  }
+}
+
+.posthaven-share-links {
+  .posthaven-share-item {
+    display: inline-block;
+    margin-right: .5rem;
+  }
+
+}
+
+.posthaven-private-form {
+  .posthaven-field {
+    display: inline-block;
+    margin-right: 0.25em;
+  }
+}

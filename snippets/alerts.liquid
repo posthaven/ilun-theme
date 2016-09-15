@@ -1,0 +1,9 @@
+{% unless posthaven.alerts == empty %}
+  <div class='alerts'>
+    {% for alert in posthaven.alerts %}
+      <div class="alert alert-{{ alert.type }}">
+        {{ alert.message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endunless %}
