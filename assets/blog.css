@@ -202,6 +202,7 @@ input[type=button] {
 
 .body-font, body, form textarea, form input[type=text], form input[type=password] {
   font-family: 'Merriweather', Helvetica, Arial, sans-serif;
+  font-weight: 300;
   line-height: 1.45; }
 
 .light-links a, body > footer a, footer.pagination a, .light-links a:visited, body > footer a:visited, footer.pagination a:visited {
@@ -218,10 +219,10 @@ input[type=button] {
   content: normal; }
 
 html {
-  font-size: 20px; }
+  font-size: 16px; }
   @media screen and (max-width: 600px) {
     html {
-      font-size: 16px; } }
+      font-size: 14px; } }
 
 body {
   background-color: white;
@@ -229,17 +230,17 @@ body {
   background-color: #222; }
 
 p {
-  margin-bottom: 1.3em; }
+  margin-bottom: 1.5em !important; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.8em; }
 
 h1 {
   margin-top: 0;
-  font-size: 3.157rem; }
+  font-size: 2.2rem; }
 
 h2 {
-  font-size: 2.369rem; }
+  font-size: 1.9rem; }
 
 h3 {
   font-size: 1.777rem; }
@@ -629,6 +630,9 @@ main > section.archive {
 .posthaven-share-links .posthaven-share-item {
   display: inline-block;
   margin-right: .5rem; }
+
+.posthaven-post-body span, .posthaven-post-body object, .posthaven-post-body iframe, .posthaven-post-body h1, .posthaven-post-body h2, .posthaven-post-body h3, .posthaven-post-body h4, .posthaven-post-body h5, .posthaven-post-body h6, .posthaven-post-body p, .posthaven-post-body blockquote, .posthaven-post-body pre, .posthaven-post-body abbr, .posthaven-post-body address, .posthaven-post-body cite, .posthaven-post-body code, .posthaven-post-body del, .posthaven-post-body dfn, .posthaven-post-body em, .posthaven-post-body img, .posthaven-post-body ins, .posthaven-post-body kbd, .posthaven-post-body q, .posthaven-post-body samp, .posthaven-post-body small, .posthaven-post-body strong, .posthaven-post-body sub, .posthaven-post-body sup, .posthaven-post-body var, .posthaven-post-body b, .posthaven-post-body i, .posthaven-post-body dl, .posthaven-post-body dt, .posthaven-post-body dd, .posthaven-post-body ol, .posthaven-post-body ul, .posthaven-post-body li, .posthaven-post-body fieldset, .posthaven-post-body form, .posthaven-post-body label, .posthaven-post-body legend, .posthaven-post-body table, .posthaven-post-body caption, .posthaven-post-body tbody, .posthaven-post-body tfoot, .posthaven-post-body thead, .posthaven-post-body tr, .posthaven-post-body th, .posthaven-post-body td, .posthaven-post-body article, .posthaven-post-body aside, .posthaven-post-body figure, .posthaven-post-body footer, .posthaven-post-body header, .posthaven-post-body menu, .posthaven-post-body nav, .posthaven-post-body section, .posthaven-post-body time, .posthaven-post-body mark, .posthaven-post-body audio, .posthaven-post-body video, .posthaven-post-body details, .posthaven-post-body summary {
+  font-weight: 300; }
 
 .posthaven-private-form .posthaven-field {
   display: inline-block;
