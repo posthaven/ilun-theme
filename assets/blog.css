@@ -427,6 +427,8 @@ body > footer {
 
 article.post, article.page {
   max-width: 100%; }
+  article.post figure, article.page figure {
+    margin-bottom: 1em; }
   article.post header, article.page header {
     position: relative; }
     article.post header .date-author, article.page header .date-author {

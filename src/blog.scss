@@ -418,6 +418,10 @@ body > footer {
 article.post, article.page {
   max-width: 100%;
 
+  figure {
+    margin-bottom: 1em;
+  }
+
   header {
     position: relative;
 

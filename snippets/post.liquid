@@ -1,4 +1,10 @@
 <article class="post post-{{ post.id }}">
+  {% if post.post_image %}
+    <figure>
+      <img src="{{ post.post_image.large.url }}" />
+    </figure>
+  {% endif %}
+  
   <header>
     {% if post.private? %}
       <div class="private-indicator" title="This post is private">&#128274;</div>
